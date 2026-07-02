@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initProgressBarAnimation();
   initVSL();
   initScrollIndicator();
+  initScarcityLiveUpdates();
 });
 
 /**
@@ -442,4 +443,58 @@ function initScrollIndicator() {
       });
     });
   }
+}
+
+/**
+ * 10. SCARCITY LIVE UPDATES
+ * Automatically increments spots filled from 73% to 75% (after 4s)
+ * and to 78% (after another 7s) once user scrolls to the final section.
+ * Updates both the Hero and form progress bars in sync.
+ */
+function initScarcityLiveUpdates() {
+  const targetSection = document.getElementById('registration-section');
+  if (!targetSection) return;
+
+  let hasTriggered = false;
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !hasTriggered) {
+        hasTriggered = true;
+        obs.unobserve(entry.target); // Run only once
+
+        // 1st update: 4 seconds after reaching the section
+        setTimeout(() => {
+          updateScarcityPercentage(75);
+
+          // 2nd update: 7 seconds later
+          setTimeout(() => {
+            updateScarcityPercentage(78);
+          }, 7000);
+        }, 4000);
+      }
+    });
+  }, {
+    threshold: 0.15 // trigger when 15% of the section is visible
+  });
+
+  observer.observe(targetSection);
+}
+
+function updateScarcityPercentage(percentage) {
+  // Update all percentage labels
+  const percentLabels = document.querySelectorAll('.scarcity-percent');
+  percentLabels.forEach(label => {
+    label.textContent = percentage + '%';
+  });
+
+  // Update all progress fill widths and ARIA values
+  const fills = document.querySelectorAll('.scarcity-progress-fill');
+  fills.forEach(fill => {
+    fill.style.width = percentage + '%';
+    const bar = fill.closest('.scarcity-progress-bar');
+    if (bar) {
+      bar.setAttribute('aria-valuenow', percentage);
+    }
+  });
 }

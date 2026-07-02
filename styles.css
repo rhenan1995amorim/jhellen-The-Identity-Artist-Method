@@ -1206,11 +1206,11 @@ footer p:last-child {
   background: linear-gradient(90deg, var(--color-gold) 0%, var(--color-urgency-red) 100%);
   border-radius: 9999px;
   box-shadow: 0 0 10px rgba(233, 69, 96, 0.4);
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .scarcity-progress-fill.animated {
-  animation: fill-scarcity-bar 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  animation-delay: 0.3s;
+  width: 73%;
 }
 
 @keyframes fill-scarcity-bar {
