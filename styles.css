@@ -312,7 +312,7 @@ section {
   align-items: center;
   justify-content: flex-start;
   padding-top: 72px;
-  padding-bottom: 280px;
+  padding-bottom: 360px;
   min-height: 100vh;
   min-height: 100dvh;
   text-align: center;
@@ -1270,7 +1270,7 @@ footer p:last-child {
 
   #hero.hero-warm {
     padding-top: 40px;
-    padding-bottom: 200px;
+    padding-bottom: 300px;
     min-height: 100vh;
     min-height: 100dvh;
     justify-content: flex-start;
