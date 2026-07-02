@@ -1134,6 +1134,19 @@ footer {
   border-top: 1px solid rgba(201, 150, 59, 0.12);
 }
 
+.footer-logo {
+  display: block;
+  max-height: 42px;
+  width: auto;
+  margin: 0 auto 20px;
+  opacity: 0.8;
+  transition: opacity 0.25s ease;
+}
+
+.footer-logo:hover {
+  opacity: 1;
+}
+
 footer p {
   margin-bottom: 8px;
 }
