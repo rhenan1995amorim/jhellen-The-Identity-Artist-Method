@@ -1247,6 +1247,50 @@ footer p:last-child {
 }
 
 /* ==========================================================================
+   HERO SOCIAL PROOF ROW
+   ========================================================================== */
+.hero-social-proof {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.hero-avatars {
+  display: flex;
+  align-items: center;
+}
+
+.hero-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 2px solid var(--color-gold);
+  margin-left: -8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+.hero-avatars .hero-avatar:first-child {
+  margin-left: 0;
+}
+
+.hero-social-text {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.3;
+  margin: 0;
+  text-align: left;
+}
+
+.hero-social-text strong {
+  color: var(--color-gold);
+  font-weight: 700;
+}
+
+/* ==========================================================================
    SCROLL INDICATOR
    ========================================================================== */
 .scroll-indicator {
