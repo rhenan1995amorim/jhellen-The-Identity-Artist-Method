@@ -1250,18 +1250,28 @@ footer p:last-child {
   }
 
   #hero.hero-warm {
-    padding-top: 68px;
+    padding-top: 40px;
+    padding-bottom: 32px;
     min-height: auto;
   }
 
+  .hero-content {
+    gap: 12px;
+  }
+
   .hero-title {
-    font-size: 2.25rem; /* 36px */
+    font-size: 2.1rem; /* ~34px */
     padding: 0 4px;
   }
 
   .hero-subtitle {
-    font-size: 1rem;
-    padding: 0 4px;
+    font-size: 0.875rem; /* smaller on mobile */
+    line-height: 1.5;
+    padding: 0 6px;
+  }
+
+  .italic-motto {
+    font-size: 0.95rem;
   }
 
   .section-title {
@@ -1277,17 +1287,40 @@ footer p:last-child {
   }
 
   .event-info-row {
-    gap: 14px;
-    font-size: 0.875rem;
+    gap: 6px 14px;
+    font-size: 0.8rem;
+  }
+
+  .countdown-container {
+    gap: 10px;
+    margin: 4px 0;
   }
 
   .countdown-box {
-    min-width: 66px;
-    padding: 12px 12px;
+    min-width: 58px;
+    padding: 9px 8px;
   }
 
   .countdown-digits {
-    font-size: 1.875rem;
+    font-size: 1.55rem;
+  }
+
+  .countdown-label {
+    font-size: 0.6rem;
+  }
+
+  .hero-scarcity {
+    max-width: 300px;
+    margin: 6px auto 0;
+  }
+
+  .hero-scarcity .scarcity-progress-text {
+    font-size: 0.78rem;
+    margin-bottom: 6px;
+  }
+
+  .hero-scarcity .scarcity-progress-bar {
+    height: 7px;
   }
 
   .about-photo-wrapper {
