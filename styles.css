@@ -949,6 +949,17 @@ section {
   animation: soft-pulse 2s infinite ease-in-out;
 }
 
+.final-cta-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  margin-top: 56px;
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 40px;
+}
+
 /* Registration Form Card */
 .form-card {
   background-color: var(--color-white);
@@ -1430,6 +1441,12 @@ footer p:last-child {
   .final-cta-left {
     text-align: center;
     align-items: center;
+  }
+
+  .final-cta-bottom {
+    margin-top: 36px;
+    padding-top: 28px;
+    gap: 16px;
   }
 
   .form-card {
