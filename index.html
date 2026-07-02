@@ -662,6 +662,26 @@
     </div>
   </footer>
 
+  <!-- ==========================================================================
+     FLOATING VSL VIDEO WIDGET (docked teaser → expanding popup)
+     To swap the video, edit VSL_VIDEO_SRC at the top of script.js (one place).
+     ========================================================================== -->
+  <div id="vsl-dock" class="vsl-dock" role="button" tabindex="0" aria-label="Watch the video">
+    <video id="vsl-teaser" class="vsl-dock__video" muted loop autoplay playsinline preload="auto"></video>
+    <span class="vsl-dock__pulse" aria-hidden="true"></span>
+    <span class="vsl-dock__label"><span class="vsl-dock__play" aria-hidden="true">▶</span> Watch the video</span>
+    <button class="vsl-dock__dismiss" type="button" aria-label="Dismiss video">✕</button>
+  </div>
+
+  <div id="vsl-modal" class="vsl-modal" aria-hidden="true">
+    <div class="vsl-modal__backdrop"></div>
+    <div class="vsl-modal__stage" role="dialog" aria-modal="true" aria-label="Presentation video">
+      <button class="vsl-modal__close" type="button" aria-label="Minimize video">✕</button>
+      <video id="vsl-main" class="vsl-modal__video" playsinline controls preload="metadata"></video>
+      <a href="#registration-form" class="vsl-modal__cta">RESERVE MY SPOT — $97</a>
+    </div>
+  </div>
+
   <!-- Link custom logic -->
   <script src="script.js"></script>
 </body>

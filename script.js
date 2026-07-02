@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   extractUTMParameters();
   initFormSubmission();
   initProgressBarAnimation();
+  initVSL();
 });
 
 /**
@@ -298,5 +299,127 @@ function initProgressBarAnimation() {
   } else {
     // Fallback if IntersectionObserver is not supported
     progressFills.forEach(fill => fill.classList.add('animated'));
+  }
+}
+
+/**
+ * 8. FLOATING VSL VIDEO WIDGET
+ * A docked, looping, muted teaser (bottom-left) that expands into a large
+ * centered popup over a dimmed page.
+ *   - First open starts the video from 0.
+ *   - Re-opening after a minimize resumes from where it paused.
+ *   - An in-video "Reserve My Spot" CTA appears partway through, then routes
+ *     to the registration form and minimizes the video.
+ *
+ * >>> To use the real video, replace VSL_VIDEO_SRC below (ideally a vertical
+ *     9:16 MP4). Everything else stays the same.
+ */
+const VSL_VIDEO_SRC = 'assets/vsl-test.mp4'; // TEST PLACEHOLDER — swap for the final vertical (9:16) video (drop the file in /assets and update this path)
+const VSL_CTA_REVEAL_RATIO = 0.5; // reveal the in-video CTA once this fraction has played
+
+function initVSL() {
+  const dock = document.getElementById('vsl-dock');
+  const modal = document.getElementById('vsl-modal');
+  if (!dock || !modal) return;
+
+  const teaser = document.getElementById('vsl-teaser');
+  const main = document.getElementById('vsl-main');
+  const closeBtn = modal.querySelector('.vsl-modal__close');
+  const backdrop = modal.querySelector('.vsl-modal__backdrop');
+  const cta = modal.querySelector('.vsl-modal__cta');
+  const dismiss = dock.querySelector('.vsl-dock__dismiss');
+
+  // Honor a prior dismissal for this browsing session
+  if (sessionStorage.getItem('vslDismissed') === '1') {
+    dock.style.display = 'none';
+    return;
+  }
+
+  // Wire the same source into both players (teaser loop + real player)
+  teaser.src = VSL_VIDEO_SRC;
+  main.src = VSL_VIDEO_SRC;
+
+  let started = false;
+
+  const playTeaser = () => { teaser.play().catch(() => {}); };
+  playTeaser();
+
+  const lockScroll = () => document.body.classList.add('vsl-lock');
+  const unlockScroll = () => document.body.classList.remove('vsl-lock');
+
+  function expand() {
+    teaser.pause();
+    if (!started) {
+      try { main.currentTime = 0; } catch (e) { /* metadata not ready yet */ }
+      started = true;
+    }
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    dock.classList.add('is-hidden');
+    lockScroll();
+    main.muted = false;
+    main.play().catch(() => {});
+    setTimeout(() => closeBtn.focus(), 60);
+  }
+
+  function minimize() {
+    main.pause(); // pausing keeps currentTime so re-opening resumes
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    dock.classList.remove('is-hidden');
+    unlockScroll();
+    playTeaser();
+  }
+
+  // Reveal the in-video CTA partway through (and keep it once the video ends)
+  main.addEventListener('timeupdate', () => {
+    if (main.duration && (main.currentTime / main.duration) >= VSL_CTA_REVEAL_RATIO) {
+      cta.classList.add('is-visible');
+    }
+  });
+  main.addEventListener('ended', () => cta.classList.add('is-visible'));
+
+  // Open interactions
+  dock.addEventListener('click', (e) => {
+    if (e.target.closest('.vsl-dock__dismiss')) return;
+    expand();
+  });
+  dock.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      expand();
+    }
+  });
+
+  // Close interactions
+  closeBtn.addEventListener('click', minimize);
+  backdrop.addEventListener('click', minimize);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) minimize();
+  });
+
+  // In-video CTA -> minimize, then route to the registration form
+  cta.addEventListener('click', (e) => {
+    e.preventDefault();
+    minimize();
+    const form = document.getElementById('registration-form');
+    if (form) {
+      const stickyHeaderHeight = 48;
+      window.scrollTo({ top: form.offsetTop - stickyHeaderHeight, behavior: 'smooth' });
+      setTimeout(() => {
+        const firstInput = form.querySelector('input[required]');
+        if (firstInput) firstInput.focus();
+      }, 800);
+    }
+  });
+
+  // Dismiss the whole widget for this session
+  if (dismiss) {
+    dismiss.addEventListener('click', (e) => {
+      e.stopPropagation();
+      minimize();
+      dock.style.display = 'none';
+      sessionStorage.setItem('vslDismissed', '1');
+    });
   }
 }
