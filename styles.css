@@ -1136,9 +1136,9 @@ footer {
 
 .footer-logo {
   display: block;
-  max-height: 42px;
+  max-height: 24px;
   width: auto;
-  margin: 0 auto 20px;
+  margin: 0 auto 16px;
   opacity: 0.8;
   transition: opacity 0.25s ease;
 }
