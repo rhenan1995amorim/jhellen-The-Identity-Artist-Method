@@ -1390,7 +1390,12 @@ footer p:last-child {
     font-size: 1.1875rem;
   }
 
-  .btn-cta, .btn-submit {
+  .btn-cta {
+    width: 90%;
+    max-width: 340px;
+  }
+
+  .btn-submit {
     width: 100%;
   }
 
