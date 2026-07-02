@@ -1251,10 +1251,12 @@ footer p:last-child {
    ========================================================================== */
 .hero-social-proof {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
   margin-bottom: 14px;
+  text-align: center;
 }
 
 .hero-avatars {
@@ -1282,7 +1284,7 @@ footer p:last-child {
   color: rgba(255, 255, 255, 0.75);
   line-height: 1.3;
   margin: 0;
-  text-align: left;
+  text-align: center;
 }
 
 .hero-social-text strong {
