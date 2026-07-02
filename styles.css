@@ -1217,10 +1217,6 @@ footer p:last-child {
    SCROLL INDICATOR
    ========================================================================== */
 .scroll-indicator {
-  position: absolute;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1228,12 +1224,12 @@ footer p:last-child {
   opacity: 0.65;
   transition: var(--transition-smooth);
   cursor: pointer;
-  z-index: 10;
+  margin-top: 16px;
 }
 
 .scroll-indicator:hover {
   opacity: 1;
-  transform: translateX(-50%) translateY(-2px);
+  transform: translateY(-2px);
 }
 
 .scroll-text {
