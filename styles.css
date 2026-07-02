@@ -1268,11 +1268,11 @@ footer p:last-child {
   }
 
   #hero.hero-warm {
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 28px;
+    padding-bottom: 32px;
     min-height: 100vh;
     min-height: 100svh;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .hero-content {
