@@ -307,9 +307,9 @@ section {
    SECTION 1: HERO (warm, elegant)
    ========================================================================== */
 #hero.hero-warm {
-  padding-top: 108px;
-  padding-bottom: 88px;
-  min-height: 92vh;
+  padding-top: 64px;
+  padding-bottom: 72px;
+  min-height: auto;
   justify-content: center;
   text-align: center;
   color: var(--color-text);
@@ -1250,7 +1250,7 @@ footer p:last-child {
   }
 
   #hero.hero-warm {
-    padding-top: 92px;
+    padding-top: 68px;
     min-height: auto;
   }
 
