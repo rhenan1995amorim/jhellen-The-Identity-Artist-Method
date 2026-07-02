@@ -1294,21 +1294,21 @@ footer p:last-child {
   }
 
   .countdown-container {
-    gap: 10px;
-    margin: 4px 0;
+    gap: 12px;
+    margin: 10px 0;
   }
 
   .countdown-box {
-    min-width: 58px;
-    padding: 9px 8px;
+    min-width: 70px;
+    padding: 14px 12px;
   }
 
   .countdown-digits {
-    font-size: 1.55rem;
+    font-size: 2rem;
   }
 
   .countdown-label {
-    font-size: 0.6rem;
+    font-size: 0.66rem;
   }
 
   .hero-scarcity {
