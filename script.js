@@ -97,7 +97,7 @@ function initStickyHeader() {
  */
 function initSmoothScroll() {
   const ctaButtons = document.querySelectorAll('.btn-cta, .sticky-cta');
-  const formSection = document.getElementById('registration-form');
+  const formSection = document.getElementById('registration-section');
 
   if (!formSection) return;
 
@@ -403,12 +403,12 @@ function initVSL() {
   cta.addEventListener('click', (e) => {
     e.preventDefault();
     minimize();
-    const form = document.getElementById('registration-form');
-    if (form) {
+    const formSection = document.getElementById('registration-section');
+    if (formSection) {
       const stickyHeaderHeight = 48;
-      window.scrollTo({ top: form.offsetTop - stickyHeaderHeight, behavior: 'smooth' });
+      window.scrollTo({ top: formSection.offsetTop - stickyHeaderHeight, behavior: 'smooth' });
       setTimeout(() => {
-        const firstInput = form.querySelector('input[required]');
+        const firstInput = document.querySelector('#registration-form input[required]');
         if (firstInput) firstInput.focus();
       }, 800);
     }
