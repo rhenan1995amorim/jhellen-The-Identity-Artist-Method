@@ -266,7 +266,7 @@ function handleSuccess(formCard) {
       <div class="success-icon">🎉</div>
       <h3 class="form-title" style="margin-bottom: 12px; font-size: 1.5rem;">You're In!</h3>
       <p class="success-message">
-        Check your email for confirmation and Zoom access details.<br>
+        Check your email for confirmation and Meet access details.<br>
         See you on July 18th!
       </p>
     </div>
