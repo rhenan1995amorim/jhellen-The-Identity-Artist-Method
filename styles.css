@@ -970,6 +970,14 @@ section {
   border: 1px solid rgba(201, 150, 59, 0.2);
 }
 
+.form-card .scarcity-progress-text {
+  color: var(--color-text-soft) !important;
+}
+
+.form-card .scarcity-progress-bar {
+  background-color: rgba(201, 150, 59, 0.15) !important;
+}
+
 .form-header {
   margin-bottom: 24px;
   text-align: center;
