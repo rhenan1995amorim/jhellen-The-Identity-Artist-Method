@@ -314,6 +314,7 @@ section {
   padding-top: 64px;
   padding-bottom: 72px;
   min-height: 100vh;
+  min-height: 100dvh;
   text-align: center;
   color: var(--color-text);
   background:
@@ -1271,7 +1272,7 @@ footer p:last-child {
     padding-top: 28px;
     padding-bottom: 32px;
     min-height: 100vh;
-    min-height: 100svh;
+    min-height: 100dvh;
     justify-content: flex-start;
   }
 
