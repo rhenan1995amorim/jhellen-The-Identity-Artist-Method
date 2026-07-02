@@ -307,6 +307,7 @@ section {
    SECTION 1: HERO (warm, elegant)
    ========================================================================== */
 #hero.hero-warm {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1210,6 +1211,76 @@ footer p:last-child {
 
 .hero-scarcity .scarcity-progress-bar {
   height: 12px;
+}
+
+/* ==========================================================================
+   SCROLL INDICATOR
+   ========================================================================== */
+.scroll-indicator {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.65;
+  transition: var(--transition-smooth);
+  cursor: pointer;
+  z-index: 10;
+}
+
+.scroll-indicator:hover {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-2px);
+}
+
+.scroll-text {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-text-soft);
+  font-weight: 500;
+}
+
+.scroll-icon {
+  width: 20px;
+  height: 32px;
+  border: 1.5px solid var(--color-text-soft);
+  border-radius: 9999px;
+  position: relative;
+}
+
+.scroll-wheel {
+  width: 3px;
+  height: 6px;
+  background-color: var(--color-gold);
+  border-radius: 9999px;
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scroll-wheel-anim 1.8s infinite ease-in-out;
+}
+
+@keyframes scroll-wheel-anim {
+  0% {
+    top: 6px;
+    opacity: 1;
+    height: 3px;
+  }
+  50% {
+    top: 14px;
+    opacity: 0.5;
+    height: 6px;
+  }
+  100% {
+    top: 14px;
+    opacity: 0;
+    height: 3px;
+  }
 }
 
 /* ==========================================================================

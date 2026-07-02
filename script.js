@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFormSubmission();
   initProgressBarAnimation();
   initVSL();
+  initScrollIndicator();
 });
 
 /**
@@ -420,6 +421,25 @@ function initVSL() {
       minimize();
       dock.style.display = 'none';
       sessionStorage.setItem('vslDismissed', '1');
+    });
+  }
+}
+
+/**
+ * 9. SCROLL TO LEARN MORE INDICATOR
+ * Scrolls smoothly to the Problem section when clicked
+ */
+function initScrollIndicator() {
+  const scrollIndicator = document.querySelector('.scroll-indicator');
+  const problemSection = document.getElementById('problem');
+
+  if (scrollIndicator && problemSection) {
+    scrollIndicator.addEventListener('click', () => {
+      const stickyHeaderHeight = 48;
+      window.scrollTo({
+        top: problemSection.offsetTop - stickyHeaderHeight,
+        behavior: 'smooth'
+      });
     });
   }
 }
