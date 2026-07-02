@@ -1538,6 +1538,14 @@ footer p:last-child {
   display: block;
 }
 
+/* Hide native mobile browser play/controls overlay on autoplay teaser video (iOS/Chrome) */
+#vsl-teaser::-webkit-media-controls-start-play-button,
+#vsl-teaser::-webkit-media-controls-play-button,
+#vsl-teaser::-webkit-media-controls {
+  display: none !important;
+  -webkit-appearance: none !important;
+}
+
 .vsl-dock__label {
   position: absolute;
   left: 0;

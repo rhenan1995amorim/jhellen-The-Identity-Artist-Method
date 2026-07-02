@@ -346,6 +346,17 @@ function initVSL() {
   const playTeaser = () => { teaser.play().catch(() => {}); };
   playTeaser();
 
+  // Force autoplay start on first user interaction (bypasses mobile autoplay/low power mode restrictions)
+  const forceAutoplay = () => {
+    playTeaser();
+    document.removeEventListener('click', forceAutoplay);
+    document.removeEventListener('touchstart', forceAutoplay);
+    document.removeEventListener('scroll', forceAutoplay);
+  };
+  document.addEventListener('click', forceAutoplay);
+  document.addEventListener('touchstart', forceAutoplay);
+  document.addEventListener('scroll', forceAutoplay);
+
   const lockScroll = () => document.body.classList.add('vsl-lock');
   const unlockScroll = () => document.body.classList.remove('vsl-lock');
 
