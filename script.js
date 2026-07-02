@@ -381,6 +381,15 @@ function initVSL() {
   });
   main.addEventListener('ended', () => cta.classList.add('is-visible'));
 
+  // Toggle play/pause on clicking the video itself
+  main.addEventListener('click', () => {
+    if (main.paused) {
+      main.play().catch(() => {});
+    } else {
+      main.pause();
+    }
+  });
+
   // Open interactions
   dock.addEventListener('click', (e) => {
     if (e.target.closest('.vsl-dock__dismiss')) return;
