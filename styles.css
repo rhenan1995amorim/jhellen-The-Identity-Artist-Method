@@ -1233,17 +1233,17 @@ footer p:last-child {
 
 .hero-scarcity {
   width: 100%;
-  max-width: 240px;
-  margin: 10px auto 0;
+  max-width: 180px;
+  margin: 8px auto 0;
 }
 
 .hero-scarcity .scarcity-progress-text {
-  font-size: 0.75rem;
-  margin-bottom: 6px;
+  font-size: 0.65rem;
+  margin-bottom: 4px;
 }
 
 .hero-scarcity .scarcity-progress-bar {
-  height: 7px;
+  height: 5px;
 }
 
 /* ==========================================================================
@@ -1482,17 +1482,17 @@ footer p:last-child {
   }
 
   .hero-scarcity {
-    max-width: 200px;
-    margin: 10px auto 0;
+    max-width: 160px;
+    margin: 8px auto 0;
   }
 
   .hero-scarcity .scarcity-progress-text {
-    font-size: 0.72rem;
-    margin-bottom: 5px;
+    font-size: 0.6rem;
+    margin-bottom: 4px;
   }
 
   .hero-scarcity .scarcity-progress-bar {
-    height: 6px;
+    height: 4px;
   }
 
   .about-photo-wrapper {
