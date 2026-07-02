@@ -1281,10 +1281,11 @@ footer p:last-child {
 
 .hero-social-text {
   font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.75);
+  color: #ffffff;
   line-height: 1.3;
   margin: 0;
   text-align: center;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 .hero-social-text strong {
