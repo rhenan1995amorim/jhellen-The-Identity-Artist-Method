@@ -701,6 +701,33 @@ section {
   line-height: 1.5;
 }
 
+.solution-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  text-align: left;
+  max-width: 680px;
+  margin: 0 auto 32px;
+  padding: 20px 24px;
+  background: rgba(201, 150, 59, 0.08);
+  border: 1px solid rgba(201, 150, 59, 0.35);
+  border-radius: 8px;
+}
+
+.solution-warning-icon {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  color: var(--color-gold);
+  flex-shrink: 0;
+}
+
+.solution-warning-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  margin: 0;
+}
+
 /* ==========================================================================
    SECTION 5: WHAT YOU'LL LEARN
    ========================================================================== */
