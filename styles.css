@@ -715,12 +715,12 @@ section {
 .about-photo-wrapper {
   position: relative;
   width: 100%;
-  max-width: 400px;
-  aspect-ratio: 4/5;
+  max-width: 280px;
+  aspect-ratio: 1/1;
   margin: 0 auto;
-  border-radius: 16px;
+  border-radius: 50%;
   overflow: hidden;
-  box-shadow: 0 24px 50px rgba(45, 30, 15, 0.18);
+  box-shadow: 0 20px 40px rgba(45, 30, 15, 0.15);
 }
 
 .about-photo-wrapper::after {
@@ -728,7 +728,7 @@ section {
   position: absolute;
   inset: 0;
   border: 1px solid rgba(201, 150, 59, 0.35);
-  border-radius: 16px;
+  border-radius: 50%;
   pointer-events: none;
 }
 
@@ -1385,7 +1385,7 @@ footer p:last-child {
   }
 
   .about-grid {
-    grid-template-columns: 400px 1fr;
+    grid-template-columns: 280px 1fr;
     gap: 56px;
   }
 
