@@ -715,7 +715,7 @@ section {
 .about-photo-wrapper {
   position: relative;
   width: 100%;
-  max-width: 280px;
+  max-width: 220px;
   aspect-ratio: 1/1;
   margin: 0 auto;
   border-radius: 50%;
@@ -765,6 +765,44 @@ section {
   color: var(--color-text);
   line-height: 1.5;
   margin-top: 8px;
+}
+
+/* Mentor Instagram Buttons */
+.mentor-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.mentor-social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 30px;
+  border: 1px solid rgba(201, 150, 59, 0.28);
+  background: rgba(201, 150, 59, 0.05);
+  color: var(--color-navy);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mentor-social-btn:hover {
+  background: var(--color-gold);
+  color: #fff;
+  border-color: var(--color-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(201, 150, 59, 0.25);
+}
+
+.instagram-icon {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
 }
 
 /* ==========================================================================
@@ -1385,7 +1423,7 @@ footer p:last-child {
   }
 
   .about-grid {
-    grid-template-columns: 280px 1fr;
+    grid-template-columns: 220px 1fr;
     gap: 56px;
   }
 
@@ -1496,7 +1534,12 @@ footer p:last-child {
   }
 
   .about-photo-wrapper {
+    max-width: 170px;
     margin-bottom: 8px;
+  }
+
+  .mentor-socials {
+    justify-content: center;
   }
 
   .about-content {
